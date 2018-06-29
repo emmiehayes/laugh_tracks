@@ -5,6 +5,6 @@ describe "User visits comedians page" do
 
     visit "/comedians"
 
-    expect(page).to have_content(comedian.special)
+    expect(page).to have_content(comedian_1.special)
   end
 end
