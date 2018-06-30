@@ -2,6 +2,11 @@
 <ul>
   <li> <%= "Name: #{comedian.name}" %></li>
   <li> <%= "Age: #{comedian.age}" %></li>
+  <% if comedian.specials %>
+    <% comedian.specials.each do |special| %>
+  <p> <%= "#{comedian.name} Special: #{special.name}" %> </br></p>
+    <% end %>
+  <% end %>
 </ul>
 <% "Average Age: #{@comedians.average_age}" %>
 <% end %>
