@@ -22,5 +22,14 @@ RSpec.describe 'a visitor' do
       expect(page).to have_content("#{comedian_1.name} Special: #{special_1.name}")
       expect(page).to have_content("#{comedian_1.name} Special: #{special_2.name}")
     end
+
+    it "should see average age for all comedians listed" do
+      comedian_1 = Comedian.create(name: 'Jimmy Fallon', age: 34)
+      comedian_2 = Comedian.create(name: 'Judd Apatow', age: 36)
+
+      visit "/comedians"
+
+      expect(page).to have_content("Average Age: 35")
+    end
   end
 end

@@ -11,7 +11,7 @@ RSpec.describe Comedian do
         expect(comic).to_not be_valid
       end
     end
-
+  describe 'Class Method' do
     describe '.average_age' do
       it 'returns average age for all comedians' do
         comedian_1 = Comedian.create(name: 'Jimmy Fallon', age: 34)
