@@ -31,5 +31,23 @@ RSpec.describe 'a visitor' do
 
       expect(page).to have_content("Average Age: 35")
     end
+
+    it "should see list of comedians that have common age of 34 " do
+      comedian_1 = Comedian.create(name: 'Jimmy Fallon', age: 34)
+      comedian_2 = Comedian.create(name: 'Judd Apatow', age: 45)
+      comedian_3 = Comedian.create(name: 'Seth Rogen', age: 34)
+
+      visit "/comedians?age=34"
+
+      expect(page).to have_content("Name: #{comedian_1.name}")
+      expect(page).to have_content("Age: #{comedian_1.age}")
+      expect(page).to have_content("Name: #{comedian_3.name}")
+      expect(page).to have_content("Age: #{comedian_3.age}")
+
+      expect(page).to_not have_content("Name: #{comedian_2.name}")
+      expect(page).to_not have_content("Age: #{comedian_2.age}")
+    end
+
+
   end
 end
